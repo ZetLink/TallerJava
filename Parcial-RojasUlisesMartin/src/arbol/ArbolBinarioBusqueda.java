@@ -18,17 +18,18 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
     }
     
     private void insertarNodo(NodoArbol p,NodoLista l) {
-        
-        if ((int)p.getCodCli() < (int)l.getDato().getCodCli()) {
-            if (p.getDcho() == null) {
-                p.setDcho(new NodoArbol(l.getDato().getCodCli(),l));
+        if (p.getCodCli() != l.getDato().getCodCli()){
+            if ((int)p.getCodCli() < (int)l.getDato().getCodCli()) {
+                if (p.getDcho() == null) {
+                    p.setDcho(new NodoArbol(l.getDato().getCodCli(),l));
+                } else {
+                    insertarNodo(p.getDcho(), l);
+                }
+            } else if (p.getIzdo() == null) {
+                p.setIzdo(new NodoArbol(l.getDato().getCodCli(),l));
             } else {
-                insertarNodo(p.getDcho(), l);
+                insertarNodo(p.getIzdo(), l);
             }
-        } else if (p.getIzdo() == null) {
-            p.setIzdo(new NodoArbol(l.getDato().getCodCli(),l));
-        } else {
-            insertarNodo(p.getIzdo(), l);
         }
     }
 

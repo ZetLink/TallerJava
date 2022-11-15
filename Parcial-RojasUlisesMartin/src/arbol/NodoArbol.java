@@ -1,9 +1,8 @@
 package arbol;
 
-import interfaces.Comparador;
 import lista.*;
 
-public class NodoArbol implements Comparador{
+public class NodoArbol{
 
     private int codCli;
     private Object dato;
@@ -59,43 +58,6 @@ public class NodoArbol implements Comparador{
     
     public void imprimirDato() {
         System.out.print(dato.toString() + "\n\n");
-    }
-    
-        
-    @Override
-    public String toString() {
-        return " " + this.getCodCli() + " ";
-    }
-
-    @Override
-    public boolean igualQue(Object op2) {
-        NodoArbol x = (NodoArbol) op2;
-        Cliente x2 = (Cliente) x.getDato();
-        return (getCodCli() == x2.getCodCli());
-    }
-
-    public boolean menorQue(Object op2) {
-        NodoArbol x = (NodoArbol) op2;
-        Cliente x2 = (Cliente) x.getDato();
-        return (getCodCli() < x2.getCodCli());
-    }
-
-    public boolean menorIgualQue(Object op2) {
-        NodoArbol x = (NodoArbol) op2;
-        Cliente x2 = (Cliente) x.getDato();
-        return (getCodCli() <= x2.getCodCli());
-    }
-
-    public boolean mayorQue(Object op2) {
-        NodoArbol x = (NodoArbol) op2;
-        Cliente x2 = (Cliente) x.getDato();
-        return (getCodCli() > x2.getCodCli());
-    }
-
-    public boolean mayorIgualQue(Object op2) {
-        NodoArbol x = (NodoArbol) op2;
-        Cliente x2 = (Cliente) x.getDato();
-        return (getCodCli() >= x2.getCodCli());
     }
    
 }

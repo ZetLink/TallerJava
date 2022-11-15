@@ -1,8 +1,6 @@
 package lista;
 
-import interfaces.Comparador;
-
-public class Cliente implements Comparador{
+public class Cliente{
     private int codCli;
     private String ape_nom;
     private String domicilio;
@@ -77,41 +75,6 @@ public class Cliente implements Comparador{
         this.cantCuotas = cantCuotas;
     }
     
-    @Override
-    public String toString() {
-        return " " + this.getCodCli() + " ";
-    }
-
-    @Override
-    public boolean igualQue(Object op2) {
-        Cliente x = (Cliente) op2;
-        return (getCodCli() == x.getCodCli());
-    }
-
-    @Override
-    public boolean menorQue(Object op2) {
-        Cliente x = (Cliente) op2;
-        return (getCodCli() < x.getCodCli());
-    }
-
-    @Override
-    public boolean menorIgualQue(Object op2) {
-        Cliente x = (Cliente) op2;
-        return (getCodCli() <= x.getCodCli());
-    }
-
-    @Override
-    public boolean mayorQue(Object op2) {
-        Cliente x = (Cliente) op2;
-        return (getCodCli() > x.getCodCli());
-    }
-
-    @Override
-    public boolean mayorIgualQue(Object op2) {
-        Cliente x = (Cliente) op2;
-        return (getCodCli() >= x.getCodCli());
-    }
-
     public void mostrarDatos(){
         System.out.println(" ");
         

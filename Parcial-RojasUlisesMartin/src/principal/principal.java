@@ -31,10 +31,10 @@ public class principal {
 //    }
     
     public void generarLista(){
-      list.insertarPrim(new Cliente(20, "Juan Pedro", "Calle Falsa 123", 385592339, 2, 1200, 0));
-      list.insertarPrim(new Cliente(15, "Juan Pedro", "Calle Falsa 123", 385592339, 1, 1200, 2));
-      list.insertarPrim(new Cliente(7, "Juan Pedro", "Calle Falsa 123", 385592339, 2, 1200, 3));
-      list.insertarPrim(new Cliente(5, "Juan Pedro", "Calle Falsa 123", 385592339, 1, 1200, 0));
+      list.insertarPrim(new Cliente(20, "Juan Pedro", "Calle Falsa 123", 385592339, 2, 2900, 0));
+      list.insertarPrim(new Cliente(15, "Juan Pedro", "Calle Falsa 123", 385592339, 1, 750, 2));
+      list.insertarPrim(new Cliente(7, "Juan Pedro", "Calle Falsa 123", 385592339, 2, 1300, 3));
+      list.insertarPrim(new Cliente(5, "Juan Pedro", "Calle Falsa 123", 385592339, 1, 980, 0));
       list.insertarPrim(new Cliente(10, "Juan Pedro", "Calle Falsa 123", 385592339, 2, 1200, 1));
     }
     
@@ -102,7 +102,13 @@ public class principal {
                 if (cod == node.getDato().getCodCli()){
                     float desc = Consola.cargarFloat(-1, "Monto: ");
                     node.getDato().setMontoPrestamo(node.getDato().getMontoPrestamo() - desc);
+                    if (node.getDato().getMontoPrestamo() <= 0){
+                        node.getDato().setMontoPrestamo(0);
+                    }
                     node.getDato().setCantCuotas(node.getDato().getCantCuotas() - 1);
+                    if (node.getDato().getCantCuotas() <= 0){
+                        node.getDato().setCantCuotas(0);
+                    }
                     System.out.println("");
                     b = true;
                 }                     
@@ -113,8 +119,7 @@ public class principal {
         if (b == false){
             System.out.println("Cliente No Encontrado");
         }
-    }
-    
+    }   
     //-----------------------
     
     //-----MOSTRAR-----   
@@ -133,6 +138,7 @@ public class principal {
             System.out.println("2- Generar Arbol Indice");
             System.out.println("3- Pago de Cuota");
             System.out.println("4- Informe de Prestamos Cancelados");
+            System.out.println("5- Mostrar Todo");
             System.out.println("0- Salir");
             op = Consola.cargarInt(0, "--> ");
             switch (op) {
@@ -148,6 +154,9 @@ public class principal {
                     break;
                 case 4:
                     mostrar();
+                    break;
+                case 5:
+                    abb.mostrarTodo(abb.getRaiz());
                     break;
                 case 0:
                     break;
