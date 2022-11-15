@@ -53,7 +53,6 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
         }
     }
 
-    // Recorre el árbol de acuerdo a su orden para eliminar un nodo
     @Override
     public NodoArbol borrar(NodoArbol p, NodoArbol ant, int dato, NodoArbol q) {
         if (p != null) {

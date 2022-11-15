@@ -40,7 +40,6 @@ public class ArbolBinario {
         this.postorden(this.raiz);
     }
 
-    // Recorrido de un árbol binario en preorden
     private void preorden(NodoArbol r) {
         if (r != null) {
             r.imprimirDato();
@@ -49,7 +48,6 @@ public class ArbolBinario {
         }
     }
 
-    // Recorrido de un árbol binario en inorden o entreorden
     private void entreorden(NodoArbol r) {
         if (r != null) {
             //entreorden(r.getIzdo());
@@ -80,7 +78,6 @@ public class ArbolBinario {
         }
     }
 
-    // Recorrido entreorden Mostrar hojas del arbol binario.
     private void entreordenMostrarHojas(NodoArbol r) {
         if (r != null) {
             if (r.getDcho() == null && r.getIzdo() == null) {
@@ -92,7 +89,6 @@ public class ArbolBinario {
     }
 
    
-    // Recorrido de un árbol binario en postorden
     private void postorden(NodoArbol r) {
         if (r != null) {
             postorden(r.getIzdo());
@@ -126,7 +122,6 @@ public class ArbolBinario {
         }
     }
     
-    // Elimina un nodo del árbol y lo retorna
     public NodoArbol borrar(NodoArbol p, NodoArbol ant, int dato, NodoArbol q) {
         if (p != null) {
             if (dato == p.getCodCli()) {

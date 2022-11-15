@@ -32,9 +32,9 @@ public class principal {
     
     public void generarLista(){
       list.insertarPrim(new Cliente(20, "Juan Pedro", "Calle Falsa 123", 385592339, 2, 1200, 0));
-      list.insertarPrim(new Cliente(15, "Juan Pedro", "Calle Falsa 123", 385592339, 2, 1200, 2));
+      list.insertarPrim(new Cliente(15, "Juan Pedro", "Calle Falsa 123", 385592339, 1, 1200, 2));
       list.insertarPrim(new Cliente(7, "Juan Pedro", "Calle Falsa 123", 385592339, 2, 1200, 3));
-      list.insertarPrim(new Cliente(5, "Juan Pedro", "Calle Falsa 123", 385592339, 2, 1200, 0));
+      list.insertarPrim(new Cliente(5, "Juan Pedro", "Calle Falsa 123", 385592339, 1, 1200, 0));
       list.insertarPrim(new Cliente(10, "Juan Pedro", "Calle Falsa 123", 385592339, 2, 1200, 1));
     }
     
@@ -133,8 +133,6 @@ public class principal {
             System.out.println("2- Generar Arbol Indice");
             System.out.println("3- Pago de Cuota");
             System.out.println("4- Informe de Prestamos Cancelados");
-            System.out.println("5- Mostrar Lista");
-            System.out.println("6- Mostrar Arbol");
             System.out.println("0- Salir");
             op = Consola.cargarInt(0, "--> ");
             switch (op) {
@@ -150,12 +148,6 @@ public class principal {
                     break;
                 case 4:
                     mostrar();
-                    break;
-                case 5:
-                    list.imprimirDatos();
-                    break;
-                case 6:
-                    abb.postorden();
                     break;
                 case 0:
                     break;

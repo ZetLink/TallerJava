@@ -24,7 +24,6 @@ public class NodoArbol implements Comparador{
         dcho = ramaDcho;
       
     }
-    //  operaciones de acceso
 
     public Object getDato() {
         return dato;
