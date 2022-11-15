@@ -9,43 +9,30 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
         super();
     }
 
-    // Inserción en el árbol aplicando orden binario
-    public void insertar(NodoLista dato) {
-        Cliente aux = (Cliente) dato.getDato();
+    public void insertar(NodoLista l) {
         if (esVacio()) {
-            raiz = new NodoArbol(aux.getCodCli(),dato);
+            raiz = new NodoArbol(l.getDato().getCodCli(),l);
         } else {
-            insertarNodo(raiz, dato);
+            insertarNodo(raiz,l);
         }
     }
-
-//     El nodo se inserta a la izq si es menor y a la der si es mayor
-    private void insertarNodo(NodoArbol p, NodoLista dato) {
+    
+    private void insertarNodo(NodoArbol p,NodoLista l) {
         
-        NodoLista listaInicio = (NodoLista) p.getDato();
-        NodoLista listaObjeto = (NodoLista) dato;
-        
-        Cliente libInicio = (Cliente) listaInicio.getDato();
-        Cliente libObjeto = (Cliente) listaObjeto.getDato();
-        
-        int iDNI = libInicio.getCodCli();
-        int iObjDNI = libObjeto.getCodCli();
-        
-        if (iObjDNI < iDNI) {
+        if ((int)p.getCodCli() < (int)l.getDato().getCodCli()) {
             if (p.getDcho() == null) {
-                p.setDcho(new NodoArbol(iDNI,(NodoLista) dato));
+                p.setDcho(new NodoArbol(l.getDato().getCodCli(),l));
             } else {
-                insertarNodo(p.getDcho(), dato);
+                insertarNodo(p.getDcho(), l);
             }
         } else if (p.getIzdo() == null) {
-            p.setIzdo(new NodoArbol(iDNI,(NodoLista) dato));
+            p.setIzdo(new NodoArbol(l.getDato().getCodCli(),l));
         } else {
-            insertarNodo(p.getIzdo(), dato);
+            insertarNodo(p.getIzdo(), l);
         }
     }
 
-    // Para buscar se considera el ordenamiento binario
-    public NodoArbol buscar(int buscado) {
+    public NodoLista buscar(NodoLista buscado) {
         if (raiz == null) {
             return null;
         } else {
@@ -53,14 +40,13 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
         }
     }
 
-    private NodoArbol localizar(NodoArbol raizSub, int buscado) {
-        NodoLista uwu = (NodoLista) raizSub.getDato();
-        Cliente aux  = (Cliente) uwu.getDato();
+    private NodoLista localizar(NodoArbol raizSub, NodoLista buscado) {
         if (raizSub == null) {
             return null;
-        } else if (buscado == aux.getCodCli()) { //buscado.igualQue(raizSub.getDato())
-            return raizSub;
-        } else if (buscado == aux.getCodCli()) { //buscado.menorQue(raizSub.getDato())
+        } else 
+            if ((int)buscado.getDato().getCodCli() == (int)raizSub.getCodCli()) {
+            return (NodoLista) raizSub.getDato();
+        } else if ((int)buscado.getDato().getCodCli() < (int)(raizSub.getCodCli())) {
             return localizar(raizSub.getIzdo(), buscado);
         } else {
             return localizar(raizSub.getDcho(), buscado);

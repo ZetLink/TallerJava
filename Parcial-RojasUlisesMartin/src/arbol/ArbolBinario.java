@@ -57,12 +57,26 @@ public class ArbolBinario {
             
             NodoLista aux = (NodoLista) r.getDato();
             Cliente aux2 = (Cliente) aux.getDato();
-            System.out.println(aux2.getCodCli());
-//            System.out.println(String.format("| %10d | %20d | %15s | %15s | %15s |", + 
-//                    aux2.getDocumento(), aux2.getNroTele(), aux2.getNom(), aux2.getCorreoElectronico(), aux2.getDomicilio()));
+            if (aux2.getCantCuotas() == 0){
+                aux2.mostrarDatos();
+            }
             
             //entreorden(r.getDcho());
             entreorden(r.getIzdo());
+        }
+    }
+    
+    public void mostrarTodo(NodoArbol r) {
+        if (r != null) {
+            //entreorden(r.getIzdo());
+            mostrarTodo(r.getDcho());
+            
+            NodoLista aux = (NodoLista) r.getDato();
+            Cliente aux2 = (Cliente) aux.getDato();
+            aux2.mostrarTodo();
+            
+            //entreorden(r.getDcho());
+            mostrarTodo(r.getIzdo());
         }
     }
 
@@ -83,7 +97,8 @@ public class ArbolBinario {
         if (r != null) {
             postorden(r.getIzdo());
             postorden(r.getDcho());
-            r.imprimirDato();
+            NodoLista aux = (NodoLista) r.getDato();
+            System.out.println(aux.getDato().getCodCli());
         }
     }
 
@@ -191,31 +206,18 @@ public class ArbolBinario {
         q = desengancharNodo(q, ant);
         return q;
     }
-   
-//    publics void imprimirDescendente(NodoArbol r) {
-//        if (r != null) {
-//            entreorden(r.getIzdo());
-//            NodoLista aux = (NodoLista) r.getDato();
-//            BibliotecaEscolar aux2 = (BibliotecaEscolar) aux.getDato();
-//            System.out.println(String.format("| %10d | %20d | %15s | %15s | %15s |", + 
-//                    aux2.getDocumento(), aux2.getNroTele(), aux2.getNom(), aux2.getCorreoElectronico(), aux2.getDomicilio()));
-//            entreorden(r.getDcho());
-//        }
-//    }
-    
-//    public boolean existe(NodoArbol r, int DNI){
-//        boolean b = false;
-//        if (r != null) {
-//            entreorden(r.getDcho());
-//            
-//            NodoLista aux = (NodoLista) r.getDato();
-//            BibliotecaEscolar aux2 = (BibliotecaEscolar) aux.getDato();
-//            if (aux2.getDocumento() == DNI){
-//                b = true;
-//            }
-//            
-//            entreorden(r.getIzdo());
-//        }
-//        return b;
-//    }
+
+    public boolean verificarExistencia(NodoArbol r, int num){
+        boolean bTemp = false;
+        bTemp = verificarExistencia(r.getIzdo(),num);
+        bTemp = verificarExistencia(r.getDcho(), num);
+        if (r == null){
+            System.out.println("nada");
+        } else {
+            if (r.getCodCli() == num){
+                bTemp = true;
+            }
+        }
+        return bTemp;
+    }
 }

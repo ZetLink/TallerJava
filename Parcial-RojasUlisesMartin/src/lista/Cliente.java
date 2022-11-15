@@ -7,9 +7,9 @@ public class Cliente implements Comparador{
     private String ape_nom;
     private String domicilio;
     private long numCelular;
-    private int condicion; //1 o 2
+    private int condicion; //1: Relacion de Dependencia - 2: Independiente
     private float montoPrestamo;
-    private int cantCuotas;
+    private int cantCuotas; //Cuotas == 0, se considera cacelado
 
     public Cliente(int codCli, String ape_nom, String domicilio, long numCelular, int condicion, float montoPrestamo, int cantCuotas) {
         this.codCli = codCli;
@@ -76,8 +76,6 @@ public class Cliente implements Comparador{
     public void setCantCuotas(int cantCuotas) {
         this.cantCuotas = cantCuotas;
     }
-
-    
     
     @Override
     public String toString() {
@@ -112,6 +110,32 @@ public class Cliente implements Comparador{
     public boolean mayorIgualQue(Object op2) {
         Cliente x = (Cliente) op2;
         return (getCodCli() >= x.getCodCli());
+    }
+
+    public void mostrarDatos(){
+        System.out.println(" ");
+        
+        System.out.println(String.format("Codigo del Cliente: %-10d  %6s  Monto del Prestamo: %-8.2f ", + 
+              getCodCli(), " ", getMontoPrestamo()));
+        System.out.println("Apellido y Nombre: " + getApe_nom());
+        System.out.println("Condicion: " + getCondicion() + " " + obtenerCondicion());
+        
+        System.out.println(" ");
+    }
+    
+    public String obtenerCondicion(){
+        String cond;
+        if (getCondicion() == 1){
+            cond = "Relacion de Dependencia";
+        } else {
+            cond = "Independiente";
+        }
+        return cond;
+    }
+    
+    public void mostrarTodo(){
+        System.out.println(String.format("| %10d | %20s | %20s | %20d | %2d | %8.2f | %4d |", + 
+                    getCodCli(), getApe_nom(), getDomicilio(), getNumCelular(),getCondicion(), getMontoPrestamo(),getCantCuotas()));
     }
     
 }

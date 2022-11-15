@@ -133,7 +133,7 @@ public class Consola {
         long x = 0;
         while (true) {
             try {
-                x = Integer.parseInt(readLine());
+                x = Long.parseLong(readLine());
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Error: " + e.getMessage());
@@ -176,5 +176,14 @@ public class Consola {
             fTemp = readFloat();
         } while (fTemp < min);
         return fTemp;
+    }
+    
+    public static long cargarLong(int min, String mensaje){
+        long lTemp = 0;
+        do{
+            System.out.print(mensaje);
+            lTemp = readLong();
+        } while (lTemp < min);
+        return lTemp;
     }
 }
