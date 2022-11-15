@@ -50,8 +50,8 @@ public class ArbolBinario {
 
     private void entreorden(NodoArbol r) {
         if (r != null) {
-            //entreorden(r.getIzdo());
-            entreorden(r.getDcho());
+            entreorden(r.getIzdo());
+            //entreorden(r.getDcho());
             
             NodoLista aux = (NodoLista) r.getDato();
             Cliente aux2 = (Cliente) aux.getDato();
@@ -59,8 +59,8 @@ public class ArbolBinario {
                 aux2.mostrarDatos();
             }
             
-            //entreorden(r.getDcho());
-            entreorden(r.getIzdo());
+            entreorden(r.getDcho());
+            //entreorden(r.getIzdo());
         }
     }
     
@@ -207,7 +207,7 @@ public class ArbolBinario {
         bTemp = verificarExistencia(r.getIzdo(),num);
         bTemp = verificarExistencia(r.getDcho(), num);
         if (r == null){
-            System.out.println("nada");
+            System.out.println("...");
         } else {
             if (r.getCodCli() == num){
                 bTemp = true;
