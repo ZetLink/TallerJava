@@ -66,15 +66,15 @@ public class ArbolBinario {
     
     public void mostrarTodo(NodoArbol r) {
         if (r != null) {
-            //entreorden(r.getIzdo());
-            mostrarTodo(r.getDcho());
+            mostrarTodo(r.getIzdo());
+            //mostrarTodo(r.getDcho());
             
             NodoLista aux = (NodoLista) r.getDato();
             Cliente aux2 = (Cliente) aux.getDato();
             aux2.mostrarTodo();
             
-            //entreorden(r.getDcho());
-            mostrarTodo(r.getIzdo());
+            mostrarTodo(r.getDcho());
+            //mostrarTodo(r.getIzdo());
         }
     }
 

@@ -186,4 +186,11 @@ public class Consola {
         } while (lTemp < min);
         return lTemp;
     }
+    
+    public static void printLines(int cant){
+        for (int i = 0; i < cant; i++) {
+            System.out.print("-");
+        }
+        System.out.println("");
+    }
 }

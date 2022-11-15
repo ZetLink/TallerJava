@@ -21,40 +21,40 @@ public class Lista {
         }
     }
     
-     public NodoLista quitar(NodoLista p, NodoLista ant) {
-        NodoLista x = p;
-
-        if (p == list) {
-            list = p.getPs();
-        } else {
-            ant.setPs(p.getPs());
-
-        }
-        return x;
-    }
-    
-    public NodoLista eliminar(int elem) {
-        NodoLista x = null;
-        NodoLista p = list;
-        NodoLista ant = null;
-        if(list == null)
-            return x;
-        boolean band = false;
-        while (p != null && !band) {
-            if (p.getDato().getCodCli() == elem) {
-                band = true;
-            } else {
-                ant = p;
-                p = p.getPs();
-
-            }
-        }
-        if (band == true) {
-            quitar(p, ant);
-            x = p;
-        }
-        return x;
-    }
+//     public NodoLista quitar(NodoLista p, NodoLista ant) {
+//        NodoLista x = p;
+//
+//        if (p == list) {
+//            list = p.getPs();
+//        } else {
+//            ant.setPs(p.getPs());
+//
+//        }
+//        return x;
+//    }
+//    
+//    public NodoLista eliminar(int elem) {
+//        NodoLista x = null;
+//        NodoLista p = list;
+//        NodoLista ant = null;
+//        if(list == null)
+//            return x;
+//        boolean band = false;
+//        while (p != null && !band) {
+//            if (p.getDato().getCodCli() == elem) {
+//                band = true;
+//            } else {
+//                ant = p;
+//                p = p.getPs();
+//
+//            }
+//        }
+//        if (band == true) {
+//            quitar(p, ant);
+//            x = p;
+//        }
+//        return x;
+//    }
     
     public boolean listaVacia() {
         return (list == null);

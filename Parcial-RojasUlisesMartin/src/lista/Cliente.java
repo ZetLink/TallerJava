@@ -1,5 +1,7 @@
 package lista;
 
+import consola.Consola;
+
 public class Cliente{
     private int codCli;
     private String ape_nom;
@@ -78,12 +80,12 @@ public class Cliente{
     public void mostrarDatos(){
         System.out.println(" ");
         
-        System.out.println(String.format("Codigo del Cliente: %-10d  %6s  Monto del Prestamo: %-8.2f ", + 
+        Consola.printLines(72);
+        System.out.println(String.format("| Codigo del Cliente: %-10d  %6s  Monto del Prestamo: %-8.2f |", + 
               getCodCli(), " ", getMontoPrestamo()));
-        System.out.println("Apellido y Nombre: " + getApe_nom());
-        System.out.println("Condicion: " + getCondicion() + " " + obtenerCondicion());
-        
-        System.out.println(" ");
+        System.out.println(String.format("| Apellido y Nombre: %-50s|", getApe_nom()));
+        System.out.println(String.format("| Condicion: %-2d%-56s|", getCondicion(), obtenerCondicion()));
+        Consola.printLines(72);
     }
     
     public String obtenerCondicion(){
@@ -97,8 +99,8 @@ public class Cliente{
     }
     
     public void mostrarTodo(){
-        System.out.println(String.format("| %10d | %20s | %20s | %20d | %2d | %8.2f | %4d |", + 
-                    getCodCli(), getApe_nom(), getDomicilio(), getNumCelular(),getCondicion(), getMontoPrestamo(),getCantCuotas()));
+        System.out.println(String.format("| %10d | %20s | %20s | %10d | %-23s | %8.2f | %6d |", + 
+                    getCodCli(), getApe_nom(), getDomicilio(), getNumCelular(),obtenerCondicion(), getMontoPrestamo(),getCantCuotas()));
     }
     
 }
