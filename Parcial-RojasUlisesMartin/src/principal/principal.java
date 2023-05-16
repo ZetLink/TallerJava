@@ -14,29 +14,29 @@ public class principal {
     }
     
     //-----GENERAR LISTA-----
-    public void generarLista(){
-        do {
-            int cod = cargarCod();
-            String AP = Consola.cargarString("Apellido y Nombre: ");
-            String domi = Consola.cargarString("Domicilio: ");
-            long tel = Consola.cargarLong(0, "Telefono: ");
-            int cond = cargarCondicion();
-            float mPres = Consola.cargarFloat(0, "Monto del Prestamo: ");
-            int cantC = Consola.cargarInt(0, "Cantidad de Cuotas: ");
-            
-            Cliente temp = new Cliente(cod, AP, domi, tel, cond, mPres, cantC);
-            list.insertarPrim(temp);
-            
-        } while (Consola.deseaContinuar());
-    }
-    
 //    public void generarLista(){
-//      list.insertarPrim(new Cliente(20, "Eusebio Prats", "Harris Creek 164", 329160365, 2, 2900, 0));
-//      list.insertarPrim(new Cliente(15, "Leo Pérez", "Pagac Skyway 286", 595750309, 1, 750, 2));
-//      list.insertarPrim(new Cliente(7, "Abelardo Paniagua", "Trinity Common 1492", 968661637, 2, 1300, 3));
-//      list.insertarPrim(new Cliente(5, "Robert Heredia", "Howe Trail 632", 341859106, 1, 980, 0));
-//      list.insertarPrim(new Cliente(10, "Juan Pedro", "Calle Falsa 123", 575314331, 2, 1200, 1));
+//        do {
+//            int cod = cargarCod();
+//            String AP = Consola.cargarString("Apellido y Nombre: ");
+//            String domi = Consola.cargarString("Domicilio: ");
+//            long tel = Consola.cargarLong(0, "Telefono: ");
+//            int cond = cargarCondicion();
+//            float mPres = Consola.cargarFloat(0, "Monto del Prestamo: ");
+//            int cantC = Consola.cargarInt(0, "Cantidad de Cuotas: ");
+//            
+//            Cliente temp = new Cliente(cod, AP, domi, tel, cond, mPres, cantC);
+//            list.insertarPrim(temp);
+//            
+//        } while (Consola.deseaContinuar());
 //    }
+    
+    public void generarLista(){
+      list.insertarPrim(new Cliente(20, "Eusebio Prats", "Harris Creek 164", 329160365, 2, 2900, 0));
+      list.insertarPrim(new Cliente(15, "Leo Pérez", "Pagac Skyway 286", 595750309, 1, 750, 2));
+      list.insertarPrim(new Cliente(7, "Abelardo Paniagua", "Trinity Common 1492", 968661637, 2, 1300, 3));
+      list.insertarPrim(new Cliente(5, "Robert Heredia", "Howe Trail 632", 341859106, 1, 980, 0));
+      list.insertarPrim(new Cliente(10, "Juan Pedro", "Calle Falsa 123", 575314331, 2, 1200, 1));
+    }
     
     public int cargarCondicion(){
         int cond;
