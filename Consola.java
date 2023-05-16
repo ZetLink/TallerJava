@@ -52,6 +52,33 @@ public class Consola {
         }
         return x;
     }
+
+    public static boolean deseaContinuar() {
+        boolean continuar = false;
+        char respuesta = ' ';
+        do {
+            System.out.print("¿Desea continuar? (S/N): ");
+            respuesta = Character.toLowerCase(readLine().charAt(0));
+        } while (respuesta != 's' && respuesta != 'n');
+            continuar = respuesta == 's';
+        return continuar;
+    }
+    
+    public static boolean preguntar(String mensaje) {
+        boolean continuar = false;
+        char respuesta = ' ';
+        do {
+            System.out.print(mensaje);
+            respuesta = Character.toLowerCase(readLine().charAt(0));
+        } while (respuesta != 's' && respuesta != 'n');
+            continuar = respuesta == 's';
+        return continuar;
+    }
+
+    public static void pausa() {
+        System.out.println("Pulse ENTER para continuar");
+        readLine();
+    }
     
     public static char readChar() {
         while (true) {
@@ -89,34 +116,6 @@ public class Consola {
         }
         return x;
     }
-
-    public static boolean deseaContinuar() {
-        boolean continuar = false;
-        char respuesta = ' ';
-        do {
-            System.out.print("¿Desea continuar? (S/N): ");
-            respuesta = Character.toLowerCase(readLine().charAt(0));
-        } while (respuesta != 's' && respuesta != 'n');
-            continuar = respuesta == 's';
-        return continuar;
-    }
-    
-    public static boolean preguntar(String mensaje) {
-        boolean continuar = false;
-        char respuesta = ' ';
-        do {
-            System.out.print(mensaje);
-            respuesta = Character.toLowerCase(readLine().charAt(0));
-        } while (respuesta != 's' && respuesta != 'n');
-            continuar = respuesta == 's';
-        return continuar;
-    }
-
-    public static void pausa() {
-        System.out.println("Pulse ENTER para continuar");
-        readLine();
-    }
-    
     
     public static int cargarInt(int min, String mensaje){
         int iTemp = 0;
@@ -180,10 +179,11 @@ public class Consola {
     }
     
     /*
-    String.format: 
-    System.out.println(String.format("| %10d | %20d | %15s | %15s | %15s |", + 
-    aux2.getDocumento(), aux2.getNroTele(), aux2.getNom(), aux2.getCorreoElectronico(), aux2.getDomicilio()));
-    
+    System.out.format("%20s\n", "Ejemplo de Print");
+    String formatoTabla = "%-16s%-20s%-10s\n"; Cantidad de Elementos y Tamaño
+    System.out.format(formatoTabla, "Nombre", "Apellido", "Numero", "Extra");
+    System.out.format(formatoTabla, "------", "--------", "------", "-----");
+    System.out.format(formatoTabla, getNombre(), getApellido(), getNumero(), getExtra());
     Tables: 
     ╔═══════════════╤═══════════════╗
     ║ Left          │ Right         ║
